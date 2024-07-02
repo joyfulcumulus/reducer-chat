@@ -1,6 +1,5 @@
 import { initialState } from './constants/initialState';
 import { useImmer } from 'use-immer';
-import { useMessages } from './useMessages.js';
 import ChatroomList from './components/ChatroomList';
 import MessageList from './components/MessageList';
 import './App.css';
@@ -12,8 +11,6 @@ function App() {
     chatroom.id === chatPage.selectedChatroomId
   );
 
-  const messages = useMessages(selectedChatroom.name);
-
   return (
     <div className="layout">
       <div className="sidebar">
@@ -24,7 +21,7 @@ function App() {
         <ChatroomList chatrooms={chatPage.chatrooms} selected={chatPage.selectedChatroomId} handleClick={updateChatPage}/>
       </div>
       <div className="messageContainer">
-        <MessageList messages={messages} selected={selectedChatroom.name} currentUsername={chatPage.currentUsername}/>
+        <MessageList selected={selectedChatroom.name} currentUsername={chatPage.currentUsername}/>
       </div>
     </div>
   );

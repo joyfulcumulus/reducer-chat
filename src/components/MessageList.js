@@ -1,8 +1,10 @@
 import Message from "./Message";
+import { useMessages } from "../useMessages";
 import MessageForm from "./MessageForm";
 import styles from './MessageList.module.css';
 
-function MessageList({ messages, selected, currentUsername }) {
+function MessageList({ selected, currentUsername }) {
+  const messages = useMessages(selected);
 
   let rows = messages.map(message => {
     return <Message key={message.created_at} message={message} />
