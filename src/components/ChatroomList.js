@@ -1,6 +1,15 @@
-function ChatroomList() {
+function ChatroomList( {chatrooms} ) {
+
+  let rows = chatrooms.map(chatroom => {
+    return <li key={chatroom.name} >{chatroom.name}</li>
+  })
+
   return(
-    <div>ChatroomList</div>
+    <div>
+      <ul>
+        {rows}
+      </ul>
+    </div>
   )
 }
 

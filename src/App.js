@@ -1,8 +1,12 @@
+import { initialState } from './constants/initialState';
+import { useImmer } from 'use-immer';
 import ChatroomList from './components/ChatroomList';
 import MessageList from './components/MessageList';
 import './App.css';
 
 function App() {
+  const [chatPage, updateChatPage] = useImmer(initialState);
+
   return (
     <div className="layout">
       <div className="sidebar">
@@ -10,10 +14,10 @@ function App() {
       </div>
       <div className="chatroomSidebar">
         <h1>Redux Chat</h1>
-        <ChatroomList />
+        <ChatroomList chatrooms={chatPage.chatrooms}/>
       </div>
       <div className="messageContainer">
-        <MessageList />
+        <MessageList messages={chatPage.messages}/>
       </div>
     </div>
   );

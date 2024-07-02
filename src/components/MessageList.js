@@ -1,6 +1,15 @@
-function MessageList() {
+import Message from "./Message";
+
+function MessageList({ messages }) {
+
+  let rows = messages.map(message => {
+    return <Message message={message} />
+  })
+
   return(
-    <div>MessageList</div>
+    <div>
+      {rows}
+    </div>
   )
 }
 
