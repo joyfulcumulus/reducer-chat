@@ -10,7 +10,7 @@ function MessageList({ messages }) {
     <div>
       {rows}
     </div>
-  )
+)
 }
 
 export default MessageList;

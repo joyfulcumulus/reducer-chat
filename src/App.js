@@ -7,6 +7,10 @@ import './App.css';
 function App() {
   const [chatPage, updateChatPage] = useImmer(initialState);
 
+  const selectedChatroom = chatPage.chatrooms.find(chatroom =>
+    chatroom.id === chatPage.selectedChatroomId
+  );
+
   return (
     <div className="layout">
       <div className="sidebar">
@@ -17,6 +21,10 @@ function App() {
         <ChatroomList chatrooms={chatPage.chatrooms} selected={chatPage.selectedChatroomId}/>
       </div>
       <div className="messageContainer">
+        <div className="messageHeader">
+          <span>Channel #</span>
+          <span>{selectedChatroom.name}</span>
+        </div>
         <MessageList messages={chatPage.messages}/>
       </div>
     </div>
