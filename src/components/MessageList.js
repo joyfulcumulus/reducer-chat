@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import Message from "./Message";
 import { useMessages } from "../useMessages";
 import MessageForm from "./MessageForm";
@@ -5,9 +6,15 @@ import styles from './MessageList.module.css';
 
 function MessageList({ selected, currentUsername }) {
   const messages = useMessages(selected);
+  const messageContainerRef = useRef(null);
 
   let rows = messages.map(message => {
     return <Message key={message.created_at} message={message} />
+  })
+
+  useEffect(()=> {
+    const messageContainerHeight = messageContainerRef.current.scrollHeight;
+    messageContainerRef.current.scrollTop = messageContainerHeight;
   })
 
   return(
@@ -16,7 +23,7 @@ function MessageList({ selected, currentUsername }) {
       <span>Channel #</span>
       <span>{selected}</span>
     </div>
-    <div className={styles.messageContentContainer}>
+    <div ref={messageContainerRef} className={styles.messageContentContainer}>
       {rows}
     </div>
     <MessageForm selected={selected} currentUsername={currentUsername}/>
