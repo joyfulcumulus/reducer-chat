@@ -1,6 +1,6 @@
 import { initialState } from './constants/initialState';
 import { useImmer } from 'use-immer';
-import { useChatroom } from './useChatroom.js';
+import { useMessages } from './useMessages.js';
 import ChatroomList from './components/ChatroomList';
 import MessageList from './components/MessageList';
 import './App.css';
@@ -12,7 +12,7 @@ function App() {
     chatroom.id === chatPage.selectedChatroomId
   );
 
-  const messages = useChatroom(selectedChatroom.name);
+  const messages = useMessages(selectedChatroom.name);
 
   return (
     <div className="layout">

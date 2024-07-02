@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 
-export function useChatroom(chatroomName) {
+export function useMessages(chatroomName) {
   const [messagesData, updateMessagesData] = useImmer([]);
   const url = `https://chat.api.lewagon.com/${chatroomName}/messages`;
 

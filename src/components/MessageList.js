@@ -19,8 +19,7 @@ function MessageList({ messages, selected, currentUsername }) {
     </div>
     <MessageForm selected={selected} currentUsername={currentUsername}/>
     </>
-
-)
+  )
 }
 
 export default MessageList;
