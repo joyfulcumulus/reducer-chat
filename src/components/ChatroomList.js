@@ -1,6 +1,12 @@
+import { useContext } from 'react';
+import { ChatContext } from '../ChatContext';
 import styles from './ChatroomList.module.css';
 
-function ChatroomList( {chatrooms, selected, handleClick} ) {
+function ChatroomList( {handleClick} ) {
+
+  const chatPage = useContext(ChatContext);
+  const chatrooms = chatPage.chatrooms;
+  const selected = chatPage.selectedChatroomId;
 
   function changeChatroom(e) {
     const chatroomName = e.target.innerText.slice(1);
