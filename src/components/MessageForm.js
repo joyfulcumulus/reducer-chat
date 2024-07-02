@@ -20,6 +20,7 @@ function MessageForm({selected, currentUsername}) {
       body: JSON.stringify(body)
     })
     .then(r => r.json());
+    updateUserInput('');
   }
 
   return(
