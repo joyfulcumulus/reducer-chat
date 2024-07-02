@@ -29,6 +29,7 @@ function MessageForm({selected, currentUsername}) {
         <input
           type="text" name="content" placeholder="Type a message here"
           value={userInput}
+          autoFocus="true"
           onChange={(e) => updateUserInput(e.target.value)}
         />
         <button className={styles.sendButton} onClick={handleSubmit}>Send</button>
