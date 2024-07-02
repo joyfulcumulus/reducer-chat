@@ -3,11 +3,15 @@ import { useImmer } from 'use-immer';
 
 export function useMessages(chatroomName) {
   const [messagesData, updateMessagesData] = useImmer([]);
-  const url = `https://chat.api.lewagon.com/${chatroomName}/messages`;
 
   useEffect(() => {
-    if (url) {
-      let ignore = false;
+    let ignore = false;
+    const intervalId = setInterval(() => {
+      fetchMessages(chatroomName);
+    }, 2000);
+
+    function fetchMessages(chatroomName) {
+      const url = `https://chat.api.lewagon.com/${chatroomName}/messages`;
       fetch(url)
       .then(response => response.json())
       .then(json => {
@@ -15,11 +19,14 @@ export function useMessages(chatroomName) {
           updateMessagesData(json.messages);
         }
       });
-      return () => {
-        ignore = true;
-      };
     }
-  }, [url, updateMessagesData] );
+
+    return () => {
+      ignore = true;
+      clearInterval(intervalId);
+    }
+
+  }, [chatroomName, updateMessagesData] );
 
   return messagesData;
 }
