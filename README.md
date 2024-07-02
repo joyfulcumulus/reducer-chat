@@ -1,9 +1,9 @@
-# Getting Started with Create React App
+# Reducer Chat
 
+## Acknowledgement
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Objective of Project
-
 Try to utilise React JS intermediate / advanced features to create a Fake Chat App. Followed [tutorial by Le Wagon](https://github.com/lewagon/react-redux-challenges/blob/master/03-Redux-Advanced/01-Redux-Chat/README.md).
 
 I did not use Redux in the end because the Create React App does not come with a Redux template.
