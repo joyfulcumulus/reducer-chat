@@ -1,10 +1,16 @@
-import { useRef, useEffect } from 'react';
-import Message from "./Message";
+import { useRef, useEffect, useContext } from 'react';
+import { ChatContext } from '../ChatContext';
 import { useMessages } from "../useMessages";
+import Message from "./Message";
 import MessageForm from "./MessageForm";
 import styles from './MessageList.module.css';
 
-function MessageList({ selected, currentUsername }) {
+function MessageList() {
+  const chatPage = useContext(ChatContext);
+  const selected = chatPage.chatrooms.find(chatroom =>
+    chatroom.id === chatPage.selectedChatroomId
+  ).name;
+
   const messages = useMessages(selected);
   const messageContainerRef = useRef(null);
 
@@ -26,7 +32,7 @@ function MessageList({ selected, currentUsername }) {
     <div ref={messageContainerRef} className={styles.messageContentContainer}>
       {rows}
     </div>
-    <MessageForm selected={selected} currentUsername={currentUsername}/>
+    <MessageForm />
     </>
   )
 }

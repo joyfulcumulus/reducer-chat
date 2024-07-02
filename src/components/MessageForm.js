@@ -1,8 +1,15 @@
 import { useImmer } from 'use-immer';
+import { useContext } from 'react';
+import { ChatContext } from '../ChatContext';
 import styles from './MessageForm.module.css';
 
-function MessageForm({selected, currentUsername}) {
+function MessageForm() {
   const [userInput, updateUserInput] = useImmer('');
+  const chatPage = useContext(ChatContext);
+  const currentUsername = chatPage.currentUsername;
+  const selected = chatPage.chatrooms.find(chatroom =>
+    chatroom.id === chatPage.selectedChatroomId
+  ).name;
 
   function handleSubmit(e) {
     const url = `https://chat.api.lewagon.com/${selected}/messages`;

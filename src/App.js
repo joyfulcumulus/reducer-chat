@@ -8,10 +8,6 @@ import './App.css';
 function App() {
   const [chatPage, updateChatPage] = useImmer(initialState);
 
-  const selectedChatroom = chatPage.chatrooms.find(chatroom =>
-    chatroom.id === chatPage.selectedChatroomId
-  );
-
   return (
     <ChatContext.Provider value={chatPage}>
       <div className="layout">
@@ -23,7 +19,7 @@ function App() {
           <ChatroomList handleClick={updateChatPage}/>
         </div>
         <div className="messageContainer">
-          <MessageList selected={selectedChatroom.name} currentUsername={chatPage.currentUsername}/>
+          <MessageList />
         </div>
       </div>
     </ChatContext.Provider>

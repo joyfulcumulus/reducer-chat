@@ -3,7 +3,6 @@ import { ChatContext } from '../ChatContext';
 import styles from './ChatroomList.module.css';
 
 function ChatroomList( {handleClick} ) {
-
   const chatPage = useContext(ChatContext);
   const chatrooms = chatPage.chatrooms;
   const selected = chatPage.selectedChatroomId;
