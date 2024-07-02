@@ -1,4 +1,5 @@
 import Message from "./Message";
+import MessageForm from "./MessageForm";
 import styles from './MessageList.module.css';
 
 function MessageList({ messages, selected }) {
@@ -13,9 +14,10 @@ function MessageList({ messages, selected }) {
       <span>Channel #</span>
       <span>{selected}</span>
     </div>
-    <div>
+    <div className={styles.messageContentContainer}>
       {rows}
     </div>
+    <MessageForm />
     </>
 
 )

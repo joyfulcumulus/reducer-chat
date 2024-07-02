@@ -1,8 +1,14 @@
 .messageHeader {
   margin: 0.8rem 0;
+  padding-bottom: 0.8rem;
+  border-bottom: solid 1px lightslategrey;
 }
 
 .messageHeader span {
   font-size: 1rem;
   font-weight: 700;
+}
+
+.messageContentContainer {
+  flex-grow: 1;
 }
