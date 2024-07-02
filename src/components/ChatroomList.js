@@ -1,7 +1,13 @@
-function ChatroomList( {chatrooms} ) {
+import styles from './ChatroomList.module.css';
+
+function ChatroomList( {chatrooms, selected} ) {
 
   let rows = chatrooms.map(chatroom => {
-    return <li key={chatroom.name} >{chatroom.name}</li>
+    return(
+      <li className={chatroom.id === selected ? `${styles.list} ${styles.active}` : styles.list} key={chatroom.name} >
+        #{chatroom.name}
+      </li>
+    )
   })
 
   return(

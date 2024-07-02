@@ -1,0 +1,16 @@
+ul {
+  padding: 0;
+}
+
+.list {
+  list-style: none;
+  margin-bottom: 0.5rem;
+  color: #93858E;
+  cursor: pointer;
+}
+
+.list.active {
+  font-weight: 700;
+  color: black;
+  cursor: auto;
+}

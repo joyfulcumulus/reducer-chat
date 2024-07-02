@@ -3,7 +3,7 @@ import Message from "./Message";
 function MessageList({ messages }) {
 
   let rows = messages.map(message => {
-    return <Message message={message} />
+    return <Message key={message.created_at} message={message} />
   })
 
   return(

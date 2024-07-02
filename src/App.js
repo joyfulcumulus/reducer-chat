@@ -14,7 +14,7 @@ function App() {
       </div>
       <div className="chatroomSidebar">
         <h1>Redux Chat</h1>
-        <ChatroomList chatrooms={chatPage.chatrooms}/>
+        <ChatroomList chatrooms={chatPage.chatrooms} selected={chatPage.selectedChatroomId}/>
       </div>
       <div className="messageContainer">
         <MessageList messages={chatPage.messages}/>
