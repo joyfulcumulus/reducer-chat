@@ -2,7 +2,7 @@ import Message from "./Message";
 import MessageForm from "./MessageForm";
 import styles from './MessageList.module.css';
 
-function MessageList({ messages, selected }) {
+function MessageList({ messages, selected, currentUsername }) {
 
   let rows = messages.map(message => {
     return <Message key={message.created_at} message={message} />
@@ -17,7 +17,7 @@ function MessageList({ messages, selected }) {
     <div className={styles.messageContentContainer}>
       {rows}
     </div>
-    <MessageForm />
+    <MessageForm selected={selected} currentUsername={currentUsername}/>
     </>
 
 )

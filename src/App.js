@@ -24,7 +24,7 @@ function App() {
         <ChatroomList chatrooms={chatPage.chatrooms} selected={chatPage.selectedChatroomId} handleClick={updateChatPage}/>
       </div>
       <div className="messageContainer">
-        <MessageList messages={messages} selected={selectedChatroom.name}/>
+        <MessageList messages={messages} selected={selectedChatroom.name} currentUsername={chatPage.currentUsername}/>
       </div>
     </div>
   );
