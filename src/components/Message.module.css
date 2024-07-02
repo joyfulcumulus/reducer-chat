@@ -1,0 +1,19 @@
+.messageContainer {
+  margin-bottom: 0.5rem;
+}
+
+.author {
+  font-weight: 700;
+
+}
+
+.timestamp {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #8B8B8B;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}

@@ -1,9 +1,15 @@
+import styles from './Message.module.css';
+
 function Message({ message }) {
+
+  let displayTime = new Date(message.created_at);
+
   return(
-    <div>
+    <div className={styles.messageContainer}>
       <div>
-        <span>{message.author}</span>
-        <span>{message.created_at}</span>
+        <span className={styles.author}>{message.author}</span>
+        {' - '}
+        <span className={styles.timestamp}>{displayTime.toLocaleTimeString()}</span>
       </div>
       <div>
         <p>{message.content}</p>
