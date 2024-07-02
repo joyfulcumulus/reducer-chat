@@ -21,11 +21,7 @@ function App() {
         <ChatroomList chatrooms={chatPage.chatrooms} selected={chatPage.selectedChatroomId}/>
       </div>
       <div className="messageContainer">
-        <div className="messageHeader">
-          <span>Channel #</span>
-          <span>{selectedChatroom.name}</span>
-        </div>
-        <MessageList messages={chatPage.messages}/>
+        <MessageList messages={chatPage.messages} selected={selectedChatroom.name}/>
       </div>
     </div>
   );
